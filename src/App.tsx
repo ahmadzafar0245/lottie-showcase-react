@@ -1,9 +1,7 @@
-import React from 'react';
 import './App.css';
 import Search from './pages/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import toast, { Toaster } from 'react-hot-toast';
-import InternetChecker from './Components/InternetChecker/InternetChecker';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (

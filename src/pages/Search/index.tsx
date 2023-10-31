@@ -3,10 +3,10 @@ import { useLazyQuery, gql } from "@apollo/client";
 import './search.css'
 import logo from '../../Assets/logo.jpeg'
 import noData from '../../Assets/noData.jpg'
-import toast, { Toaster } from 'react-hot-toast';
-import AnimaitionCard from "../../Components/AnimationCard/AnimaitionCard";
+import toast from 'react-hot-toast';
 import ShowPopup from "../../Components/ShowPopup/ShowPopup";
 import InternetChecker from "../../Components/InternetChecker/InternetChecker";
+import AnimaitionCard from "../../Components/AnimationCard/AnimaitionCard";
 
 
 type AnimationNode = {
