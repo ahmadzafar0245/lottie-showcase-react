@@ -1,0 +1,55 @@
+.inputBox{
+    width: 500px !important;
+}
+.mainSearchContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.lottie-animation-card{
+height: 200px;
+border-radius: 10px;
+margin-top: 10px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+cursor: pointer;
+}
+.headinglotti{
+   text-align: center;
+   font-size: 30px;
+   padding-top: 4px;
+}
+.lottie-div{
+    display: flex;
+    justify-content: space-between;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 20px;
+}
+.button-container>button{
+   width: 100px;
+   height: 50px;
+  font-size: 20px;
+}
+.saver{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+}
+.logo-container>img{
+    height: 100px;
+}
+.nodata{
+    display: flex;
+    justify-content: center;
+}
+.nodata>img{
+    height: 200px;
+    margin-top: 10px;
+}
