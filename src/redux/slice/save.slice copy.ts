@@ -2,10 +2,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 // Part 2
-export interface InitialState {
+export interface IssueInitialState {
     savedAni: string[]
 }
-const initialState: InitialState = {
+const initialState: IssueInitialState = {
     savedAni: []
 }
 

@@ -3,7 +3,7 @@ import './App.css';
 import Search from './pages/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import toast, { Toaster } from 'react-hot-toast';
-import InternetChecker from './components/InternetChecker/InternetChecker';
+import InternetChecker from './Components/InternetChecker/InternetChecker';
 
 function App() {
   return (

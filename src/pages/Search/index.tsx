@@ -4,9 +4,9 @@ import './search.css'
 import logo from '../../Assets/logo.jpeg'
 import noData from '../../Assets/noData.jpg'
 import toast, { Toaster } from 'react-hot-toast';
-import AnimaitionCard from "../../components/AnimationCard/AnimaitionCard";
-import ShowPopup from "../../components/ShowPopup/ShowPopup";
-import InternetChecker from "../../components/InternetChecker/InternetChecker";
+import AnimaitionCard from "../../Components/AnimationCard/AnimaitionCard";
+import ShowPopup from "../../Components/ShowPopup/ShowPopup";
+import InternetChecker from "../../Components/InternetChecker/InternetChecker";
 
 
 type AnimationNode = {
@@ -99,13 +99,13 @@ const Search: React.FC = () => {
     const handleSearch = () => {
         searchPublicAnimations({ variables: { query: searchTerm } });
     };
-
-
     // This function handles saving an animation to local storage.
     // It fetches the animation's JSON data from the provided URL, stores it locally,
     // and updates the "offlineAnimations" state with the new data.
     // If "offlineAnimations" is already defined, it appends the animation data,
     // otherwise, it initializes a new array with the animation data.
+
+
     const onSaveClick = async (animation: AnimationEdge) => {
         // console.log(animation.node.jsonUrl)
         await fetch(animation.node.jsonUrl, {
@@ -115,28 +115,27 @@ const Search: React.FC = () => {
                 console.log(data)
                 toast.success("Added Successfully")
 
-                // if (offlineAnimations) {
-                let arr: any = offlineAnimations ? [...offlineAnimations] : []
-                const obj = {
-                    id: animation.node.id,
-                    name: animation.node.name,
-                    localJsonUrl: data
+                if (offlineAnimations) {
+                    let arr: any = [...offlineAnimations]
+                    const obj = {
+                        id: animation.node.id,
+                        name: animation.node.name,
+                        localJsonUrl: data
+                    }
+                    arr.push(obj)
+                    localStorage.setItem('offlineAnimations', JSON.stringify(arr))
+                    setOfflineAnimations(arr)
+                } else {
+                    let arr: any = []
+                    const obj = {
+                        id: animation.node.id,
+                        name: animation.node.name,
+                        localJsonUrl: data
+                    }
+                    arr.push(obj)
+                    localStorage.setItem('offlineAnimations', JSON.stringify(arr))
+                    setOfflineAnimations(arr)
                 }
-                arr.push(obj)
-                localStorage.setItem('offlineAnimations', JSON.stringify(arr))
-                setOfflineAnimations(arr)
-                // } 
-                // else {
-                //     let arr: any = []
-                //     const obj = {
-                //         id: animation.node.id,
-                //         name: animation.node.name,
-                //         localJsonUrl: data
-                //     }
-                //     arr.push(obj)
-                //     localStorage.setItem('offlineAnimations', JSON.stringify(arr))
-                //     setOfflineAnimations(arr)
-                // }
 
 
             }).catch(err => {
@@ -158,8 +157,6 @@ const Search: React.FC = () => {
         toast.success("Deleted Successfully")
 
     }
-
-
     // This function checks if an animation has already been saved in the "offlineAnimations" array.
     // It filters the array to find an item with a matching ID to the given animation,
     // and if a match is found, it returns true to indicate that the animation is already saved.
@@ -184,8 +181,8 @@ const Search: React.FC = () => {
 
         try {
 
-            const response = (await fetch(url)).json;
-            const uri = (await fetch(url)).json;
+            const response = await fetch(url);
+            const uri = await response.json();
 
 
             // Convert JSON to a Blob
@@ -246,10 +243,9 @@ const Search: React.FC = () => {
                 </div>
             </div>
 
-            {
-                /* // These conditional rendering statements are used to display loading and error messages.
-                // - If the "loading" state is true, it shows a "Loading..." message to indicate that data is being fetched.
-                // - If there is an "error" state with a message, it displays an error message to inform the user about the issue. */}
+            {/* // These conditional rendering statements are used to display loading and error messages.
+// - If the "loading" state is true, it shows a "Loading..." message to indicate that data is being fetched.
+// - If there is an "error" state with a message, it displays an error message to inform the user about the issue. */}
 
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
@@ -314,11 +310,11 @@ const Search: React.FC = () => {
                 </div>
             )}
             {/* // This code block renders a "ShowPopup" component when a user clicks on an animation.
-            // - The "hideModel" function is used to close the popup when called.
-            // - The "visible" prop controls whether the popup is displayed (true for visible, false for hidden).
-            // - The "animation" prop is set to the "selectedLoti" object, which likely contains animation data.
-            // - The "src" prop is set to the JSON URL of the selected animation, which is displayed in the popup.
-            // This popup allows users to view detailed information about the selected animation. */}
+// - The "hideModel" function is used to close the popup when called.
+// - The "visible" prop controls whether the popup is displayed (true for visible, false for hidden).
+// - The "animation" prop is set to the "selectedLoti" object, which likely contains animation data.
+// - The "src" prop is set to the JSON URL of the selected animation, which is displayed in the popup.
+// This popup allows users to view detailed information about the selected animation. */}
 
 
             <ShowPopup

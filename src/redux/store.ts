@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import saveSlice from "./slice/save.slice";
+import IssueReducer from "./slice/animation.slice";
+import saveReducer from "./slice/animation.slice";
+
 export const store = configureStore({
     reducer: {
-        save: saveSlice
+        issue: IssueReducer,
+        save: saveReducer
     }
 })
 export type RootState = ReturnType<typeof store.getState>
