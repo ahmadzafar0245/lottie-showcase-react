@@ -4,9 +4,9 @@ import './search.css'
 import logo from '../../Assets/logo.jpeg'
 import noData from '../../Assets/noData.jpg'
 import toast from 'react-hot-toast';
-import ShowPopup from "../../Components/ShowPopup/ShowPopup";
-import InternetChecker from "../../Components/InternetChecker/InternetChecker";
-import AnimaitionCard from "../../Components/AnimationCard/AnimaitionCard";
+import ShowPopup from "../../components/ShowPopup/ShowPopup";
+import InternetChecker from "../../components/InternetChecker/InternetChecker";
+import AnimaitionCard from "../../components/AnimationCard/AnimaitionCard";
 
 
 type AnimationNode = {
